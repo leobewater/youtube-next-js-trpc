@@ -9,9 +9,8 @@ Git: https://github.com/jherr/trpc-on-the-app-router
 ```
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
 ```
+
+## API
+http://localhost:3000/api/trpc/getTodos

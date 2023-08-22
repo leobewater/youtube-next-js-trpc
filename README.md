@@ -7,6 +7,9 @@ Git: https://github.com/jherr/trpc-on-the-app-router
 > pnpm add @trpc/server 
 > pnpm add @trpc/client @trpc/react-query @tanstack/react-query  
 > pnpm add drizzle-orm better-sqlite3
+> pnpm add drizzle-kit
+## create migration
+> pnpm drizzle-kit generate:sqlite
 ```
 
 ```bash
@@ -15,3 +18,4 @@ pnpm dev
 
 ## API
 http://localhost:3000/api/trpc/getTodos
+

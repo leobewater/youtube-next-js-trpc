@@ -11,12 +11,23 @@ const TodoList = () => {
       getTodos.refetch();
     },
   });
+  const setDone = trpc.setDone.useMutation({
+    onSettled: () => {
+      getTodos.refetch();
+    },
+  });
 
-  const handleTodo = async () => {
+  const handleTodo = () => {
     if (content.length) {
       addTodo.mutate(content);
       setContent('');
     }
+  };
+  const handleOnChange = (todo: any) => {
+    setDone.mutate({
+      id: todo.id,
+      done: todo.done ? 0 : 1,
+    });
   };
 
   return (
@@ -30,6 +41,7 @@ const TodoList = () => {
               type="checkbox"
               checked={!!todo.done}
               style={{ zoom: 1.5 }}
+              onChange={() => handleOnChange(todo)}
             />
             <label htmlFor={`check-${todo.id}`}>{todo.content}</label>
           </div>
